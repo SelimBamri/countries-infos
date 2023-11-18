@@ -70,8 +70,44 @@ for i in range(16, 70):
         "Continent": "Afrique"
     }
     countries.append(country)
-
-print(len(countries))
-print(countries)
 time.sleep(5)
+
+print(countries)
+driver.get("https://www.jetpunk.com/user-quizzes/1584524/devises-monetaires-par-pays")
+start_button = driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[4]/button")
+start_button.click()
+time.sleep(2)
+stop_button = driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div[1]/button")
+stop_button.click()
+time.sleep(1)
+countries_currencies = []
+for i in range(2, 68):
+    country_name = driver.find_element(By.XPATH, f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
+    capital_name = driver.find_element(By.XPATH, f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
+    country = {
+        "Nom": country_name.text.replace("\n", ""),
+        "Devise": capital_name.text.replace("\n", ""),
+    }
+    countries_currencies.append(country)
+
+for i in range(2, 68):
+    if i == 60:
+        continue
+    country_name = driver.find_element(By.XPATH, f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
+    capital_name = driver.find_element(By.XPATH, f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
+    country = {
+        "Nom": country_name.text.replace("\n", ""),
+        "Devise": capital_name.text.replace("\n", ""),
+    }
+    countries_currencies.append(country)
+
+
+for i in range(2, 67):
+    country_name = driver.find_element(By.XPATH, f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
+    capital_name = driver.find_element(By.XPATH, f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
+    country = {
+        "Nom": country_name.text.replace("\n", ""),
+        "Devise": capital_name.text.replace("\n", ""),
+    }
+    countries_currencies.append(country)
 
