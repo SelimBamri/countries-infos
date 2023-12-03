@@ -164,3 +164,11 @@ for c1 in countries:
 if is_okay:
     print('Parfait')
 
+for c in countries_currencies:
+    for x in countries:
+        if x["Nom"] == c["Nom"]:
+            x["Devise"] = c["Devise"]
+
+print(countries)
+
+
