@@ -180,12 +180,12 @@ for i in range(1, 40):
                                           f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/table[{i}]/tbody/tr[1]/td[{j}]/div/img")
         country = {
             "Nom": country_name.text.replace("\n", ""),
-            "Drapeau": country_map.get_attribute("src")
+            "Carte": country_map.get_attribute("src")
         }
         countries_maps.append(country)
 countries_maps.append({
     "Nom": "Îles Marshall",
-    "Drapeau": "https://jetpunk.b-cdn.net/img/user-photo-library/f3/f3158861d3-450.png"
+    "Carte": "https://jetpunk.b-cdn.net/img/user-photo-library/f3/f3158861d3-450.png"
 })
 
 # Printing the lists
@@ -238,3 +238,15 @@ for i in range(196):
     elif countries_maps[i].get('Nom') == 'Île Maurice':
         countries_maps[i]['Nom'] = 'Maurice'
 
+for country in countries:
+    for c1 in countries_currencies:
+        if c1.get("Nom") == country.get("Nom"):
+            country["Devise"] = c1.get("Devise")
+    for c1 in countries_flags:
+        if c1.get("Nom") == country.get("Nom"):
+            country["Drapeau"] = c1.get("Drapeau")
+    for c1 in countries_maps:
+        if c1.get("Nom") == country.get("Nom"):
+            country["Carte"] = c1.get("Carte")
+
+print("Liste finale: \n", countries)
