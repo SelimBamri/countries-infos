@@ -1,4 +1,5 @@
 import time
+import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -7,19 +8,23 @@ driver = webdriver.Edge()
 # Getting country names and their capitals
 driver.get("https://www.jetpunk.com/user-quizzes/29612/capitales-du-monde")
 start_button = driver.find_element(By.XPATH,
-                                   "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[4]/button")
+                                   "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div["
+                                   "4]/button")
 start_button.click()
 time.sleep(2)
 stop_button = driver.find_element(By.XPATH,
-                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div[1]/button")
+                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div["
+                                  "1]/button")
 stop_button.click()
 time.sleep(1)
 countries = []
 for i in range(2, 47):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Capitale": capital_name.text.replace("\n", ""),
@@ -29,9 +34,11 @@ for i in range(2, 47):
 
 for i in range(49, 72):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Capitale": capital_name.text.replace("\n", ""),
@@ -41,9 +48,11 @@ for i in range(49, 72):
 
 for i in range(2, 50):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Capitale": capital_name.text.replace("\n", ""),
@@ -53,9 +62,11 @@ for i in range(2, 50):
 
 for i in range(52, 66):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Capitale": capital_name.text.replace("\n", ""),
@@ -65,9 +76,11 @@ for i in range(52, 66):
 
 for i in range(2, 14):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Capitale": capital_name.text.replace("\n", ""),
@@ -77,9 +90,11 @@ for i in range(2, 14):
 
 for i in range(16, 70):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Capitale": capital_name.text.replace("\n", ""),
@@ -91,19 +106,23 @@ time.sleep(5)
 # Getting countries currencies
 driver.get("https://www.jetpunk.com/user-quizzes/1584524/devises-monetaires-par-pays")
 start_button = driver.find_element(By.XPATH,
-                                   "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[4]/button")
+                                   "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div["
+                                   "4]/button")
 start_button.click()
 time.sleep(2)
 stop_button = driver.find_element(By.XPATH,
-                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div[1]/button")
+                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div["
+                                  "1]/button")
 stop_button.click()
 time.sleep(1)
 countries_currencies = []
 for i in range(2, 68):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[1]/div")
     country_currency = driver.find_element(By.XPATH,
-                                           f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
+                                           f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                           f"11]/div/table/tbody/tr/td[1]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Devise": country_currency.text.replace("\n", ""),
@@ -114,9 +133,11 @@ for i in range(2, 68):
     if i == 60:
         continue
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[2]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Devise": capital_name.text.replace("\n", ""),
@@ -125,9 +146,11 @@ for i in range(2, 68):
 
 for i in range(2, 67):
     country_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[1]/div")
     capital_name = driver.find_element(By.XPATH,
-                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
+                                       f"/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div["
+                                       f"11]/div/table/tbody/tr/td[3]/table/tbody/tr[{i}]/td[2]")
     country = {
         "Nom": country_name.text.replace("\n", ""),
         "Devise": capital_name.text.replace("\n", ""),
@@ -137,11 +160,13 @@ for i in range(2, 67):
 # Getting country flags
 driver.get("https://www.jetpunk.com/user-quizzes/176134/drapeaux-du-monde")
 start_button = driver.find_element(By.XPATH,
-                                   "//html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[4]/button")
+                                   "//html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div["
+                                   "4]/button")
 start_button.click()
 time.sleep(2)
 stop_button = driver.find_element(By.XPATH,
-                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div[1]/button")
+                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div["
+                                  "1]/button")
 stop_button.click()
 time.sleep(5)
 countries_flags = []
@@ -164,11 +189,13 @@ countries_flags.append({
 # Getting list of the maps
 driver.get("https://www.jetpunk.com/user-quizzes/6121/chaque-formes-de-pays")
 start_button = driver.find_element(By.XPATH,
-                                   "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div[4]/button")
+                                   "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[2]/div[2]/div["
+                                   "4]/button")
 start_button.click()
 time.sleep(2)
 stop_button = driver.find_element(By.XPATH,
-                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div[1]/button")
+                                  "/html/body/div/div/div[2]/div[3]/div/div/div[1]/div/div[2]/div[4]/div/div/div["
+                                  "1]/button")
 stop_button.click()
 time.sleep(5)
 countries_maps = []
@@ -238,6 +265,7 @@ for i in range(196):
     elif countries_maps[i].get('Nom') == 'Île Maurice':
         countries_maps[i]['Nom'] = 'Maurice'
 
+# Merging the lists into countries
 for country in countries:
     for c1 in countries_currencies:
         if c1.get("Nom") == country.get("Nom"):
@@ -249,4 +277,9 @@ for country in countries:
         if c1.get("Nom") == country.get("Nom"):
             country["Carte"] = c1.get("Carte")
 
+# Printing the final list
 print("Liste finale: \n", countries)
+
+# Creating a json file out of the list
+with open("pays-info.json", 'w') as file:
+    json.dump(countries, file)
