@@ -281,5 +281,5 @@ for country in countries:
 print("Liste finale: \n", countries)
 
 # Creating a json file out of the list
-with open("pays-info.json", 'w') as file:
-    json.dump(countries, file)
+with open("pays-info.json", 'w', encoding="utf-8") as file:
+    json.dump(countries, file, indent=4, ensure_ascii=False)
